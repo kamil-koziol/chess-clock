@@ -6,12 +6,126 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    @State var player1: Player = Player();
+    @State var player2: Player = Player();
+    
+    @State var playerTurn = 1;
+    
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common)
+    @State private var timerSubscription: Cancellable?
+    
     var body: some View {
-        Text("Hello, world!")
+        ZStack {
+            VStack {
+                Button(action: {
+                    if(playerTurn == 1) {
+                        restartTimer()
+                        player1.onTurnEnd()
+                        playerTurn = 2;
+                    }
+                }, label: {
+                    Clock(counter: $player1.timeRemaining)
+                        .background(playerTurn == 1 ? Color.accentColor: Color.white)
+                        .foregroundColor(playerTurn == 1 ? Color.white: Color.accentColor)
+                })
+                .rotationEffect(.radians(.pi))
+                
+                Button(action: {
+                    if(playerTurn == 2) {
+                        restartTimer()
+                        player2.onTurnEnd();
+                        playerTurn = 1
+                    }
+                }, label: {
+                    Clock(counter: $player2.timeRemaining)
+                        .background(playerTurn == 2 ? Color.accentColor: Color.white)
+                        .foregroundColor(playerTurn == 2 ? Color.white: Color.accentColor)
+                })
+            }
+            
+            HStack {
+                Spacer()
+                
+                // Restart Button
+                Button(action: {
+                    player1 = Player()
+                    player2 = Player()
+                    stopTimer()
+                }, label: {
+                    Image(systemName: "memories")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                })
+                Spacer()
+                
+                // Play-Pause Button
+                Button(action: {
+                    if(timerSubscription == nil) {
+                        startTimer()
+                    } else {
+                        stopTimer()
+                    }
+                }, label: {
+                    Image(systemName: timerSubscription == nil ? "play.fill": "pause.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                })
+                Spacer()
+                
+                // Settings
+                Button(action: {}, label: {
+                    Image(systemName: "gearshape.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                })
+                Spacer()
+            }
             .padding()
+            .background(Color.init(white: 0.15))
+        }
+        .edgesIgnoringSafeArea(.all)
+        .onReceive(timer, perform: { _ in
+            onTimerTick()
+        })
+        
     }
+    
+    func startTimer() {
+        if self.timerSubscription == nil {
+            self.timer = Timer.publish(every: 1, on: .main, in: .common)
+            self.timerSubscription = self.timer.connect()
+        }
+    }
+    
+    func stopTimer() {
+        timerSubscription?.cancel()
+        timerSubscription = nil
+    }
+    
+    func restartTimer() {
+        stopTimer()
+        startTimer()
+    }
+    
+    func onTimerTick() {
+        if(playerTurn == 1) {
+            player1.decreaseTime(amount: 1)
+        } else {
+            player2.decreaseTime(amount: 1)
+        }
+    }
+    
+    func switchPlayerTurns() {
+        if(playerTurn == 1) {
+            playerTurn = 2;
+        } else {
+            playerTurn = 1;
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
