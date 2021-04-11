@@ -9,11 +9,11 @@ import Foundation
 
 struct Player {
     var timeRemaining: Int = 300
-    var increment: Int = 2
+    var increment: Int = 0
     var moves: Int = 0
     
     mutating func decreaseTime(amount: Int) {
-        if(moves > 0 && timeRemaining > 0) {
+        if(timeRemaining > 0) {
             self.timeRemaining -= amount;
         }
     }

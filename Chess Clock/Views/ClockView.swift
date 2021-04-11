@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Clock: View {
+struct ClockView: View {
     
     @Binding var counter: Int;
     
@@ -25,8 +25,8 @@ struct Clock: View {
 
 struct Clock_Previews: PreviewProvider {
     static var previews: some View {
-        Clock(counter: Binding.constant(10))
-        Clock(counter: Binding.constant(100))
-        Clock(counter: Binding.constant(4000))
+        ClockView(counter: Binding.constant(10))
+        ClockView(counter: Binding.constant(100))
+        ClockView(counter: Binding.constant(4000))
     }
 }

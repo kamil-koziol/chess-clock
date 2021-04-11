@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34569B62261C624700EACA57 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34569B61261C624700EACA57 /* Settings.swift */; };
 		34E39345261B386E00504169 /* Chess_ClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E39344261B386E00504169 /* Chess_ClockApp.swift */; };
 		34E39347261B386E00504169 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E39346261B386E00504169 /* ContentView.swift */; };
 		34E39349261B386F00504169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34E39348261B386F00504169 /* Assets.xcassets */; };
 		34E3934C261B386F00504169 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34E3934B261B386F00504169 /* Preview Assets.xcassets */; };
 		34E39355261B50BE00504169 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E39354261B50BE00504169 /* TimeUtils.swift */; };
-		34E39358261B535700504169 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E39357261B535700504169 /* Clock.swift */; };
+		34E39358261B535700504169 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E39357261B535700504169 /* ClockView.swift */; };
 		34E3935B261BB43C00504169 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E3935A261BB43C00504169 /* Player.swift */; };
+		34F6D4D4261DC8290070EA5B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D4D3261DC8290070EA5B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34569B61261C624700EACA57 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		34E39341261B386E00504169 /* Chess Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E39344261B386E00504169 /* Chess_ClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess_ClockApp.swift; sourceTree = "<group>"; };
 		34E39346261B386E00504169 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,8 +27,9 @@
 		34E3934B261B386F00504169 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34E3934D261B386F00504169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E39354261B50BE00504169 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
-		34E39357261B535700504169 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		34E39357261B535700504169 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		34E3935A261BB43C00504169 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		34F6D4D3261DC8290070EA5B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34569B68261C653F00EACA57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34E39357261B535700504169 /* ClockView.swift */,
+				34F6D4D3261DC8290070EA5B /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34569B69261C656400EACA57 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				34E39354261B50BE00504169 /* TimeUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		34569B6A261C657D00EACA57 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				34E3935A261BB43C00504169 /* Player.swift */,
+				34569B61261C624700EACA57 /* Settings.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		34E39338261B386E00504169 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +88,14 @@
 		34E39343261B386E00504169 /* Chess Clock */ = {
 			isa = PBXGroup;
 			children = (
+				34569B6A261C657D00EACA57 /* Other */,
+				34569B69261C656400EACA57 /* Utils */,
+				34569B68261C653F00EACA57 /* Views */,
 				34E39344261B386E00504169 /* Chess_ClockApp.swift */,
 				34E39346261B386E00504169 /* ContentView.swift */,
-				34E3935A261BB43C00504169 /* Player.swift */,
-				34E39357261B535700504169 /* Clock.swift */,
 				34E39348261B386F00504169 /* Assets.xcassets */,
 				34E3934D261B386F00504169 /* Info.plist */,
 				34E3934A261B386F00504169 /* Preview Content */,
-				34E39354261B50BE00504169 /* TimeUtils.swift */,
 			);
 			path = "Chess Clock";
 			sourceTree = "<group>";
@@ -147,9 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F6D4D4261DC8290070EA5B /* SettingsView.swift in Sources */,
 				34E39355261B50BE00504169 /* TimeUtils.swift in Sources */,
 				34E39347261B386E00504169 /* ContentView.swift in Sources */,
-				34E39358261B535700504169 /* Clock.swift in Sources */,
+				34569B62261C624700EACA57 /* Settings.swift in Sources */,
+				34E39358261B535700504169 /* ClockView.swift in Sources */,
 				34E3935B261BB43C00504169 /* Player.swift in Sources */,
 				34E39345261B386E00504169 /* Chess_ClockApp.swift in Sources */,
 			);
